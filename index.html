@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Crediticias - Tu Futuro Financiero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+        
+        .banner {
+            max-width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(0deg) translate(-100%, -100%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content {
+            padding: 30px 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .offer-badge {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            color: #2c2c54;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .services {
+            margin-bottom: 30px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .service-item .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #26de81, #20bf6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .service-item .text {
+            flex: 1;
+        }
+        
+        .service-item .title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .service-item .description {
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.3;
+        }
+        
+        .service-item .arrow {
+            font-size: 20px;
+            opacity: 0.7;
+            margin-left: 10px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #26de81, #20bf6b);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(38, 222, 129, 0.3);
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(38, 222, 129, 0.4);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .urgency-text {
+            background: linear-gradient(135deg, #ff4757, #c44569);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0;
+            border-radius: 15px;
+            animation: blink 2s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .circle1 { width: 60px; height: 60px; top: 20px; right: 30px; animation: float-circle 4s ease-in-out infinite; }
+        .circle2 { width: 40px; height: 40px; bottom: 60px; left: 20px; animation: float-circle 5s ease-in-out infinite reverse; }
+        .circle3 { width: 80px; height: 80px; top: 50%; right: -20px; animation: float-circle 6s ease-in-out infinite; }
+        
+        @keyframes float-circle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="decorative-elements">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+        </div>
+        
+        <div class="header">
+            <h1>💳 SOLUCIONES CREDITICIAS</h1>
+            <div class="subtitle">Tu futuro financiero empieza HOY</div>
+        </div>
+        
+        <div class="content">
+            <div class="offer-badge">
+                🔥 OFERTA ESPECIAL - CONSULTA GRATIS 🔥
+            </div>
+            
+            <div class="services">
+                <div class="service-item" onclick="contactWhatsApp('limpieza')">
+                    <div class="icon">✨</div>
+                    <div class="text">
+                        <div class="title">Limpieza de Buró de Crédito</div>
+                        <div class="description">Elimina reportes negativos y mejora tu historial crediticio</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </div>
+                
+                <div class="service-item" onclick="contactWhatsApp('creditos')">
+                    <div class="icon">🚀</div>
+                    <div class="text">
+                        <div class="title">Créditos Rápidos y Seguros</div>
+                        <div class="description">Obtén financiamiento con tasas preferenciales</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </div>
+                
+                <div class="service-item" onclick="contactWhatsApp('score')">
+                    <div class="icon">📈</div>
+                    <div class="text">
+                        <div class="title">Mejora tu Score Crediticio</div>
+                        <div class="description">Estrategias efectivas para aumentar tu calificación</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </div>
+                
+                <div class="service-item" onclick="contactWhatsApp('asesoria')">
+                    <div class="icon">🏆</div>
+                    <div class="text">
+                        <div class="title">Asesoría Financiera Experta</div>
+                        <div class="description">Planificación personalizada para tus metas</div>
+                    </div>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <a href="#" class="cta-button" onclick="contactWhatsApp('general')">
+                    📞 CONSULTA GRATIS AHORA
+                </a>
+            </div>
+            
+            <div class="urgency-text">
+                ⏰ ÚLTIMOS CUPOS DISPONIBLES - NO TE QUEDES SIN EL TUYO
+            </div>
+            
+            <div class="contact-info">
+                💬 Respuesta inmediata por WhatsApp<br>
+                🔒 100% Confidencial y Seguro<br>
+                ⭐ +500 clientes satisfechos
+            </div>
+        </div>
+        
+        <div class="footer">
+            Soluciones Crediticias © 2025 - Todos los derechos reservados
+        </div>
+    </div>
+
+    <script>
+        // Número de WhatsApp configurado
+        const WHATSAPP_NUMBER = "50661580875"; // ✅ Número configurado
+        
+        function contactWhatsApp(service) {
+            let message = "";
+            
+            switch(service) {
+                case 'limpieza':
+                    message = "Hola! Me interesa el servicio de *Limpieza de Buró de Crédito*. ¿Podrían darme más información sobre el proceso y los costos? 📋✨";
+                    break;
+                case 'creditos':
+                    message = "¡Hola! Necesito información sobre *Créditos Rápidos y Seguros*. ¿Qué requisitos necesito y cuáles son las tasas de interés? 🚀💳";
+                    break;
+                case 'score':
+                    message = "Hola! Quiero *mejorar mi Score Crediticio*. ¿Podrían explicarme qué estrategias utilizan y en cuánto tiempo veo resultados? 📈⬆️";
+                    break;
+                case 'asesoria':
+                    message = "¡Hola! Me interesa la *Asesoría Financiera Experta*. ¿Cómo funciona la planificación personalizada y cuál es el costo? 🏆💼";
+                    break;
+                default:
+                    message = "¡Hola! Vi su publicidad de *Soluciones Crediticias* y me interesa conocer más sobre sus servicios. ¿Podrían darme información sobre la consulta gratuita? 💳✨";
+            }
+            
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+        
+        // Animaciones adicionales cuando se carga la página
+        window.addEventListener('load', function() {
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
